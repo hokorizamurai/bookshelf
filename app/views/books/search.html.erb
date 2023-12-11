@@ -1,0 +1,14 @@
+<h1>Search for Books</h1>
+
+<%= form_tag(books_search_path, method: :get) do %>
+ <%= text_field_tag(:query, params[:query],placeholder: '本のタイトル') %>
+ <%= submit_tag('検索') %>
+<% end %>
+
+<% if @books %>
+  <ul>
+    <% @books.each do |book| %>
+      <li><%= book['volumeInfo']['title'] %></li>
+    <% end %>
+  </ul>
+<% end %>
