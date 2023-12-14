@@ -1,0 +1,8 @@
+<h1>Book Search</h1>
+
+<%= link_to 'Search Page', search_path %>
+
+<%= form_tag(search_path, method: 'get') do %>
+  <%= text_field_tag(:query, params[:query], placeholder: 'Search for books...')%>
+  <%= submit_tag('Search') %>
+<% end %>

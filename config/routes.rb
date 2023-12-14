@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  get 'books/search'
+  root  "books#index"
+  get '/search', to: 'books#search'
 end

@@ -1,14 +1,22 @@
-<h1>Search for Books</h1>
+<h1>Search Results</h1>
 
-<%= form_tag(books_search_path, method: :get) do %>
- <%= text_field_tag(:query, params[:query],placeholder: '本のタイトル') %>
- <%= submit_tag('検索') %>
-<% end %>
-
-<% if @books %>
+<% if flash[:alert] %>
+  <p><%= flash[:alert] %></p>
+<% else %>
+<% if @books.present? %>
   <ul>
     <% @books.each do |book| %>
-      <li><%= book['volumeInfo']['title'] %></li>
+      <li>
+      <% if book[:image_url] %>
+        <%= image_tag(book[:image_url], class:'book-thumbnail') %>
+        <% end %>
+      <strong>Title:</strong> <%= book[:title] %><br>
+      <strong>Author:</strong> <%= book[:author]%><br>
+      <strong>Description:</strong> <%= book[:description] %>
+      </li>
     <% end %>
   </ul>
+  <% else %>
+    <p>No results found for '<%= @query %>'</p>
+  <% end %>
 <% end %>
