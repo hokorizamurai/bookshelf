@@ -12,11 +12,11 @@
         <% end %>
       <strong>Title:</strong> <%= book[:title] %><br>
       <strong>Author:</strong> <%= book[:author]%><br>
-      <strong>Description:</strong> <%= book[:description] %>
       </li>
     <% end %>
   </ul>
   <% else %>
     <p>No results found for '<%= @query %>'</p>
   <% end %>
+  
 <% end %>

@@ -34,7 +34,6 @@ class BooksController < ApplicationController
       {
         title: item['volumeInfo']['title'],
         author: item['volumeInfo']['authors'].join(','),
-        description: item['volumeInfo']['description'],
         image_url: item['volumeInfo']['imageLinks']&.dig('thumbnail')
       }
     end
